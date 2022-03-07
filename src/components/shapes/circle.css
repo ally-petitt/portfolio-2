@@ -7,6 +7,7 @@
     background-color: #F965FC;
     z-index: 100;
     border-radius: 50%;
+    pointer-events: none
 }
 
 .circle.sm {

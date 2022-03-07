@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useImperativeHandle, forwardRef } from "re
 import { gsap } from "gsap"
 import "./circle.css"
 
-const Circle1 = forwardRef(({ size, delay }, ref) => {
+const Circle = forwardRef(({ size, delay }, ref) => {
   const el = useRef();
     
   useImperativeHandle(ref, () => {           
@@ -17,7 +17,7 @@ const Circle1 = forwardRef(({ size, delay }, ref) => {
   return <div className={`circle ${size}`} ref={el}></div>;
 });
 
-function Circle() {    
+function Cursor() {    
   const circleRefs = useRef([]);
   
   circleRefs.current = [];
@@ -43,11 +43,11 @@ function Circle() {
   
   return (
     <div className="app">   
-      <Circle1 size="sm" ref={addCircleRef} delay={0} />
-      <Circle1 size="md" ref={addCircleRef} delay={0.1} />
-      <Circle1 size="lg" ref={addCircleRef} delay={0.2} />
+      <Circle size="sm" ref={addCircleRef} delay={0} />
+      <Circle size="md" ref={addCircleRef} delay={0.1} />
+      <Circle size="lg" ref={addCircleRef} delay={0.2} />
     </div>
   );
 }
 
-export default Circle
+export default Cursor
