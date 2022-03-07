@@ -1,6 +1,8 @@
 import './App.css';
 import Hero from './components/Hero';
+import Circle from "./components/shapes/Circle"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 function App() {
   const theme = createTheme({
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Circle />
       <Hero />
     </ThemeProvider>
   )
