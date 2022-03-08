@@ -2,6 +2,7 @@ import './App.css';
 import Hero from './components/Hero';
 import Circle from "./components/shapes/Circle"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import FrontendSection from './components/FrontendSection';
 
 
 function App() {
@@ -18,10 +19,13 @@ function App() {
   })
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Circle />
-      <Hero />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Hero />
+        <FrontendSection />
+      </ThemeProvider>
+    </>
   )
 }
 
