@@ -14,19 +14,31 @@ function FrontendSection() {
   });
 
   useEffect(() => {
-    gsap.from(textRef.current, {
-      y: "90vh",
+    gsap.fromTo(textRef.current,{
+      y: 900,
+      opacity: 0
+    } ,{
+      y: 0,
       duration: 2,
+      opacity: 1,
       scrollTrigger: {
-        trigger: "#textBox"
+        trigger: "#textContainer",
+        scrub: .8,
+        markers: true
       }
     })
   })
 
   return (
-    <div style={{ height: "100vh" }}>
-      <Box textAlign="center" id="textBox">
-        <Typography ref={textRef} variant="h1" fontWeight="300" letterSpacing={2} component="h3">FRONTEND DEVELOPER</Typography>
+    <div>
+      <Box textAlign="center" height="180vh">
+        <div id="textContainer" style={{ height: "1500px", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center" }}>
+          <Typography ref={textRef} variant="h1" fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND DEVELOPER</Typography>
+        </div>
+
+        <Box height="100vh">
+        box1
+      </Box>
       </Box>
     </div>
   )
