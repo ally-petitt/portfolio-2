@@ -3,17 +3,15 @@ import { Box } from '@mui/system'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useEffect, useRef } from 'react'
+import reactIcon from "../icons/react-icon.svg"
 
 function FrontendSection() {
   gsap.registerPlugin(ScrollTrigger)
   const textRef = useRef();
-
-  const scrollAnim = gsap.from(textRef.current, {
-    y: "90vh",
-    duration: 2
-  });
+  const logoRef = useRef();
 
   useEffect(() => {
+    // animation to fade in text
     gsap.fromTo(textRef.current,{
       y: 900,
       opacity: 0
@@ -24,21 +22,39 @@ function FrontendSection() {
       scrollTrigger: {
         trigger: "#textContainer",
         scrub: .8,
-        markers: true
+      }
+    })
+
+
+    // animation to move text to the left
+    gsap.fromTo(textRef.current,{
+      y: 0
+    }
+      ,{
+      width: "50vw",
+      y: (window.innerHeight / 2),
+      duration: 2,
+      scrollTrigger: {
+        trigger: "#anim1",
+        scrub: .8,
       }
     })
   })
 
+  console.log((window.innerHeight / 2))
+
   return (
     <div>
       <Box textAlign="center" height="180vh">
-        <div id="textContainer" style={{ height: "1500px", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center" }}>
-          <Typography ref={textRef} variant="h1" fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND DEVELOPER</Typography>
-        </div>
+        <span id="textContainer" style={{ height: "1300pxg", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px" }}>
+          <Typography ref={textRef} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
+        </span>
 
-        <Box height="100vh">
-        box1
-      </Box>
+        <Box id="anim1" mt="100vh" height="100vh" ref={logoRef}></Box>
+        <Box>
+          box1
+          <img src={reactIcon} />
+        </Box>
       </Box>
     </div>
   )
