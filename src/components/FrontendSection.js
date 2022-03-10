@@ -28,7 +28,8 @@ function FrontendSection() {
 
     // animation to move text to the left
     gsap.fromTo(textRef.current,{
-      y: 0
+      y: 0,
+      width: "100vw"
     }
       ,{
       width: "50vw",
@@ -36,24 +37,43 @@ function FrontendSection() {
       duration: 2,
       scrollTrigger: {
         trigger: "#anim1",
-        scrub: .8,
+        scrub: .8
       }
     })
-  })
 
-  console.log((window.innerHeight / 2))
+
+    // animation to fade up logo
+    gsap.fromTo(logoRef.current, {
+      opacity: 0,
+      y: 0,
+      display: "none"
+    }, {
+      opacity: 1,
+      y: (window.innerHeight / 2),
+      display: "inline",
+      scrollTrigger: {
+        trigger: "#logoContainer",
+        markers: true,
+        scrub: .8
+      }
+    })
+
+
+  })
 
   return (
     <div>
-      <Box textAlign="center" height="180vh">
-        <span id="textContainer" style={{ height: "1300pxg", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px" }}>
-          <Typography ref={textRef} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
-        </span>
-
-        <Box id="anim1" mt="100vh" height="100vh" ref={logoRef}></Box>
-        <Box>
-          box1
-          <img src={reactIcon} />
+      <Box textAlign="center" display="flex" alignItems="end" justifyContent="stretch">
+        <div style={{ width:"100%" }}>
+          <div id="textContainer" style={{ height: "1300px", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px" }}>
+            <Typography ref={textRef} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0, width: "100%" }}>FRONTEND<br/>DEVELOPER</Typography>
+          </div>
+          <Box id="anim1" mt="100vh" width="100%" height="100vh"></Box>
+        </div>
+        <Box id="logoContainer" height="100vh" width="50vw" display="flex" >
+          <div id="logoInnerContainer">
+            <img style={{ }} src={reactIcon} ref={logoRef} />
+          </div>
         </Box>
       </Box>
     </div>
