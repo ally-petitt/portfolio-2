@@ -3,7 +3,7 @@ import { Box } from '@mui/system'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useEffect, useRef } from 'react'
-import reactIcon from "../icons/react-icon.svg"
+import ICONS from "../icons/index.js"
 
 function FrontendSection() {
   gsap.registerPlugin(ScrollTrigger)
@@ -52,12 +52,14 @@ function FrontendSection() {
       y: (window.innerHeight / 2),
       display: "inline",
       scrollTrigger: {
-        trigger: "#logoContainer",
+        trigger: "#trigger1",
         markers: true,
         scrub: .8
       }
     })
 
+
+    // animation to bring in other logos
 
   })
 
@@ -70,10 +72,20 @@ function FrontendSection() {
           </div>
           <Box id="anim1" mt="100vh" width="100%" height="100vh"></Box>
         </div>
-        <Box id="logoContainer" height="100vh" width="50vw" display="flex" >
-          <div id="logoInnerContainer">
-            <img style={{ }} src={reactIcon} ref={logoRef} />
+        <Box id="logoContainer" width="50vw" >
+          <div id="logoInnerContainer" style={{ position: "sticky", top: "0", padding: "40px",  height: "1300px" }}>
+            <img src={ICONS.react} ref={logoRef} style={{ position: "sticky", top: "0" }}/>
+            <Box id="smallLogoContainer">
+              { // render in all the logos
+                Object.entries(ICONS).map(([key, value]) => {
+                  if (key != "react") return <img src={ICONS[key]} />
+                })
+              }
+            </Box>
           </div>
+          
+          <div id="trigger1" style={{ height: "100vh" }}></div>
+          <div id="trigger2" style={{ height: "100vh" }}></div> 
         </Box>
       </Box>
     </div>
