@@ -81,49 +81,48 @@ function FrontendSection() {
         scrub: .8 
       }
     })
-      
-    timeline.current.fromTo(textRef.current,{
-        y: 900,
-        opacity: 0
-      } ,{
-        y: 0,
-        duration: 2,
-        opacity: 1,
-      })
+
+    timeline.current
+     // make text and logos transparent before animations begin
+      .set(textRef.current, { opacity: 0, x: 500 })
+      .set(logoRef.current, { opacity: 0 })
+      .set(logosRef.current, { opacity: 0 })
+
+      // fade text up
+      .from(textRef.current, {
+          y: 900,
+          duration: 2,
+          opacity: 1,
+        })
+    // move text to left
       .to(textRef.current, {
-        color: "#ff0000",
-        duration: 3,
-      })
-
-    // var tween = gsap.fromTo(textRef.current,{
-    //   y: 900,
-    //   opacity: 0
-    // } ,{
-    //   y: 0,
-    //   duration: 2,
-    //   opacity: 1,
-    //   scrollTrigger: {
-    //     trigger: "#textContainer",
-    //     scrub: .8,
-    //   }
-    // })
-
-    // console.log(tween)
-    
+          x: "0",
+          y: (window.innerHeight / 2),
+          duration: 1,
+        })
+      // fade up react logo
+      .fromTo(logoRef.current, 1, {
+          opacity: 0,
+          y: 0,
+        }, {
+          opacity: 1,
+          y: (window.innerHeight / 2),
+          duration: 2
+        })
+  
 
   }, [])
 
   return (
     <div>
-      <Box textAlign="center" display="flex" alignItems="end" justifyContent="stretch">
-        <div style={{ width:"100%" }}>
-          <div id="textContainer" style={{ height: "1300px", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px", width: "100vw" }}>
+      <Box textAlign="center" display="flex" alignItems="end" maxWidth="100vw">
+        <div>
+          <div id="textContainer" style={{ width: "50vw", height: "10000px", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px"}}>
             <Typography ref={textRef} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
           </div>
-          {/* <Box id="anim1" mt="100vh" width="100%" height="100vh"></Box> */}
         </div>
-        {/* <Box id="logoContainer" width="50vw" > */}
-          <div id="logoInnerContainer" style={{ position: "sticky", top: "0", padding: "40px",  height: "1300px", width: "50vw" }}>
+        <Box id="logoContainer" width="50vw" >
+          <div id="logoInnerContainer" style={{ position: "sticky", top: "0",  height: "1300px", width: "100%" }}>
             <img src={ICONS.react} ref={logoRef} style={{ position: "sticky", top: "0" }}/>
             <Box id="smallLogoContainer" ref={logosRef} position="sticky" top={0}>
               { // render in all the logos
@@ -133,10 +132,7 @@ function FrontendSection() {
               }
             </Box>
           </div>
-          
-          {/* <div id="trigger1" style={{ height: "100vh" }}></div>
-          <div id="trigger2" style={{ height: "100vh" }}></div>  */}
-        {/* </Box> */}
+        </Box>
       </Box>
     </div>
   )
