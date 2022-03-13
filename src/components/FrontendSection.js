@@ -1,9 +1,10 @@
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useEffect, useRef } from 'react'
 import ICONS from "../icons/index.js"
+import "./frontend.css"
 
 function FrontendSection() {
   gsap.registerPlugin(ScrollTrigger)
@@ -26,7 +27,7 @@ function FrontendSection() {
      // make text and logos transparent before animations begin
       .set(textRef.current, { opacity: 0, x: 500 })
       .set(logoRef.current, { opacity: 0, y: 100 })
-      .set(logosRef.current, { opacity: 0 })
+      // .set(logosRef.current, { opacity: 0 })
 
       // fade text up
       .from(textRef.current, {
@@ -46,26 +47,34 @@ function FrontendSection() {
           y: 0,
           duration: 1
         })
+      // lower other logos
+      // .from(logosRef.current, {
+      //   y: -100,
+      //   opacity: 1,
+      //   duration: 1
+      // })
   
 
   }, [])
 
   return (
     <div>
-      <Box>
-        <div id="wrapper" style={{ position: "sticky", top: "0", height: "3000px", textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center", maxWidth: "100vw"}}>
+      <Box bgcolor="primary.main">
+        <div id="wrapper" style={{ position: "sticky", top: "0", height: "3000px", textAlign: "center", display: "flex", maxWidth: "100vw"}}>
           <div id="textContainer" style={{ width: "50vw", height: "100vh", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px", display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Typography ref={textRef} lineHeight={1.3} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
+            <Typography color="white" ref={textRef} lineHeight={1.3} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
           </div>
-          <Box id="logoContainer" width="50vw" position="sticky" top={0} >
-              <img src={ICONS.react} ref={logoRef} style={{ width: "60%", position: "sticky", top: "0", height: "100vh", padding: "40px" }}/>
-              <Box id="smallLogoContainer" ref={logosRef} position="sticky" top={0}>
+          <Box id="logoContainer" width="50vw" position="sticky" top={0} display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
+              <img src={ICONS.react} ref={logoRef} style={{ zIndex: "2", width: "60%", position: "sticky", top: "0", padding: "40px" }}/>
+              <Grid container id="smallLogoContainer" ref={logosRef} position="sticky" top={0} justifyContent="center" width="65%">
                 { // render in all the logos
                   Object.entries(ICONS).map(([key, value]) => {
-                    if (key != "react") return <img style={{ opacity: "0" }} src={ICONS[key]} alt={`${ICONS[key]} logo`} />
+                    if (key != "react") return (
+                      <Grid item xs={3}><img id={`${key}-logo`} style={{ opacity: 1, position: "sticky", top: "0", transform: "translateY(-100px)", width: "40%", maxWidth: "100px" }} src={ICONS[key]} alt={`${key} logo`} /></Grid>
+                    )
                   })
                 }
-              </Box>
+              </Grid>
           </Box>
         </div>
       </Box>
