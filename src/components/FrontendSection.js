@@ -60,21 +60,21 @@ function FrontendSection() {
   return (
     <div>
       <Box bgcolor="primary.main">
-        <div id="wrapper" style={{ position: "sticky", top: "0", height: "3000px", textAlign: "center", display: "flex", maxWidth: "100vw"}}>
+        <div id="wrapper" style={{ position: "sticky", top: "0", height: "3000px", textAlign: "center", justifyContent: "center", display: "flex", maxWidth: "100vw"}}>
           <div id="textContainer" style={{ width: "50vw", height: "100vh", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Typography color="white" ref={textRef} lineHeight={1.3} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
           </div>
           <Box id="logoContainer" width="50vw" position="sticky" top={0} display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
-              <img src={ICONS.react} ref={logoRef} style={{ zIndex: "2", width: "60%", position: "sticky", top: "0", padding: "40px" }}/>
-              <Grid container id="smallLogoContainer" ref={logosRef} position="sticky" top={0} justifyContent="center" width="65%">
+              <img src={ICONS.react} ref={logoRef} style={{ zIndex: "2", width: "60%", position: "relative", padding: "40px" }}/>
+              <Box container id="smallLogoContainer" ref={logosRef} position="relative" top={-1}  width="65%">
                 { // render in all the logos
                   Object.entries(ICONS).map(([key, value]) => {
                     if (key != "react") return (
-                      <Grid item xs={3}><img id={`${key}-logo`} style={{ opacity: 1, position: "sticky", top: "0", transform: "translateY(-100px)", width: "40%", maxWidth: "100px" }} src={ICONS[key]} alt={`${key} logo`} /></Grid>
+                      <img id={`${key}-logo`} style={{ opacity: 1, position: "relative" }} src={ICONS[key]} alt={`${key} logo`} />
                     )
                   })
                 }
-              </Grid>
+              </Box>
           </Box>
         </div>
       </Box>
