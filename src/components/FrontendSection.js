@@ -26,16 +26,16 @@ function FrontendSection() {
 
     timeline.current
      // make text and logos transparent before animations begin
-      // .set(textRef.current, { opacity: 0, x: 500 })
+      .set(textRef.current, { opacity: 0, x: 500 })
       .set(logoRef.current, { opacity: 0, y: 100 })
       .set(logosRef.current, { opacity: 0, y: -100, scale: 0.9 })
 
       // fade text up
-      // .from(textRef.current, {
-      //     y: 900,
-      //     duration: 2,
-      //     opacity: 1,
-      //   })
+      .from(textRef.current, {
+          y: 900,
+          duration: 2,
+          opacity: 1,
+        })
     // move text to left
       .to(textRef.current, .75, {
           x: 0,
@@ -67,7 +67,17 @@ function FrontendSection() {
 
       })
       // TODO: make parallax where logos move faster than react logo on scroll
-      .to("#logoContainer", { y: "-100vh", duration: 2, scale: 0.8, opacity: 0})
+      // .to("#logoContainer", { y: "-100vh", duration: 2, scale: 0.8, opacity: 0})
+      // .to("#bootstrap-logo", { scale: 0.5, end: "bottom 50%+=100px" })
+      .to(logosRef.current.children, {
+        scale: 0,
+        stagger: 0.08,
+        opacity: 0,
+        rotateX: "70deg", 
+        rotateY: "-50deg",
+        duration: 1.2
+      })
+
   
 
   }, [])
@@ -76,8 +86,8 @@ function FrontendSection() {
     <div>
       <Box bgcolor="primary.main">
         <div id="wrapper" style={{ position: "sticky", top: "0", textAlign: "center", justifyContent: "center", display: "flex", maxWidth: "100vw"}}>
-          <div id="textContainer" style={{ width: "50vw", height: "200vh", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px", display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Typography id="text" color="white" ref={textRef} lineHeight={1.3} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3" sx={{ position: "sticky", top: 0 }}>FRONTEND<br/>DEVELOPER</Typography>
+          <div id="textContainer" style={{ width: "50vw", height: "100vh", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px", display: "flex", alignItems: "center", justifyContent: "center"}}>
+            <Typography id="text" color="white" ref={textRef} lineHeight={1.3} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3">FRONTEND<br/>DEVELOPER</Typography>
           </div>
           <Box id="logoContainer" width="50vw" position="sticky" top={0} display="flex" flexDirection="column" justifyContent="center" alignItems="center" height="100vh">
               <img src={ICONS.react} ref={logoRef} style={{ zIndex: "2", width: "60%", position: "relative", padding: "40px" }}/>
@@ -85,7 +95,7 @@ function FrontendSection() {
                 { // render in all the logos
                   Object.entries(ICONS).map(([key, value]) => {
                     if (key != "react") return (
-                      <img id={`${key}-logo`} style={{ opacity: 1, position: "relative" }} src={ICONS[key]} alt={`${key} logo`} />
+                      <img id={`${key}-logo`} style={{ position: "relative" }} src={ICONS[key]} alt={`${key} logo`} />
                     )
                   })
                 }

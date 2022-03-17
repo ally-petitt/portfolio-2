@@ -1,7 +1,3 @@
-#smallLogoContainer {
-    
-}
-
 #angular-logo { width: 75px; right: 40px; bottom: 115px;}
 
 #css-logo {bottom: 300px; width: 90px; right: 40px}
@@ -17,4 +13,4 @@
 #js-logo {width: 90px; left: 170px; bottom: 170px}
 
 
-#text {transform-origin: 20 30}
+/* #text {transform-origin: 20 30} */
