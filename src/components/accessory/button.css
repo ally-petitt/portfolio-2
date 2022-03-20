@@ -1,0 +1,18 @@
+#button1 {
+    font-size: 14px;
+    text-decoration: none; 
+    color: #fff; 
+    border: 1px #fff solid;
+    border-radius:5px;
+    padding: 15px;
+    background-color: #03080E;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#button1:hover {
+    background-color: #fff;
+    border-color: #03080E;
+    color: #03080E
+}
+

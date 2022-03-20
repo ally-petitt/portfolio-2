@@ -72,9 +72,12 @@ function FrontendSection() {
         rotateY: "-50deg",
         duration: 1.2
       })
+    
     .to("#textContainer", { height: "50vh" })
-    .to(logoRef.current ,{ scale: 0.7 })
+    .to(logoRef.current ,{ scale: 0.7, opacity: .4 })
     .to("#logoContainer", {  height: "50vh", top: "50vh", right: "50vw" })
+    .to("#wrapper", {backgroundColor: "#03080E", display: "block"})
+    .to("#projectsContainer", { display: "flex" })
 
     // slide up projects
     
@@ -101,6 +104,7 @@ function FrontendSection() {
                 }
               </Box>
           </Box>
+          <Projects />
         </div>
       </Box>
     </div>
