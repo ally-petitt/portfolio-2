@@ -79,7 +79,7 @@ function FrontendSection() {
     .to("#wrapper", {backgroundColor: "#03080E", display: "block"})
     .to("#projectsContainer", { display: "flex" })
 
-    // slide up projects
+    // TODO:slide up projects
     
   
 
@@ -88,7 +88,7 @@ function FrontendSection() {
   return (
     <div>
       <Box bgcolor="primary.main">
-        <div id="wrapper" style={{ position: "sticky", top: "0", left: "0", textAlign: "center", justifyContent: "center", display: "flex", maxWidth: "100vw", height: "6000px"}}>
+        <div id="wrapper" style={{ position: "sticky", top: "0", left: "0", textAlign: "center", display: "flex", maxWidth: "100vw", height: "6000px"}}>
           <div id="textContainer" style={{ width: "50vw", height: "100vh", pointerEvents: "none", position: "sticky", top: "0", textAlign: "center", padding: "40px", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Typography id="text" color="white" ref={textRef} lineHeight={1.3} variant="h1" m={0} fontWeight="300" letterSpacing={2} component="h3">FRONTEND<br/>DEVELOPER</Typography>
           </div>
