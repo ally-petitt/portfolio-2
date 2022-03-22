@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useImperativeHandle, forwardRef } from "react"
 import { gsap } from "gsap"
-import "./circle.css"
+import "./index.css"
 
 const Circle = forwardRef(({ size, delay }, ref) => {
   const el = useRef();

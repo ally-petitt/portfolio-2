@@ -23,3 +23,10 @@
     width: 90px;
     height: 90px;
 }
+
+.outline {
+    background-color: transparent;
+    border: 1px #FAE4C4 solid;
+}
+
+.filled {background-color: #FAE4C4;}
