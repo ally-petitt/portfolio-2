@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -7,22 +7,21 @@ import React, { useEffect, useRef } from 'react'
 import ICONS from "../icons/index.js"
 import "./frontend.css"
 import Projects from './Projects.js';
+import useRefs from "react-use-refs";
 
 function FrontendSection() {
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(TextPlugin)
-  // todo: clean this up
-  const textRef = useRef();
-  const logoRef = useRef();
-  const logosRef = useRef();
-  const timeline = useRef();
+
+  const [textRef, logoRef, logosRef, timeline] = useRefs()
+  const [pj0, pj1, pj2, pj3] = useRefs();
 
   useEffect(() => {
 
     timeline.current = gsap.timeline({
       scrollTrigger: {
         trigger: "#textContainer",
-        scrub: .8 
+        scrub: .8, 
       }
     })
 
@@ -31,6 +30,7 @@ function FrontendSection() {
       .set(textRef.current, { opacity: 0, x: 500 })
       .set(logoRef.current, { opacity: 0, y: 100 })
       .set(logosRef.current, { opacity: 0, y: -100, scale: 0.9 })
+      .set("#projectsContainer > *", {opacity: 0, y: 400})
 
       // fade text up
       .from(textRef.current, {
@@ -76,10 +76,12 @@ function FrontendSection() {
     .to("#textContainer", { height: "50vh" })
     .to(logoRef.current ,{ scale: 0.7, opacity: .4 })
     .to("#logoContainer", {  height: "50vh", top: "50vh", right: "50vw" })
-    .to("#wrapper", {backgroundColor: "#03080E", display: "block"})
-    .to("#projectsContainer", { display: "flex" })
+    .to("#wrapper", {backgroundColor: "#03080E", display: "block", duration: 1.2})
+    .to("#projectsContainer", { display: "flex"})
 
     // TODO:slide up projects
+    .to([pj0.current, pj1.current], { opacity: 1, y:0, stagger: 0.3 })
+    .to([pj2.current, pj3.current], 0.7, { opacity: 1, y:0, stagger: 0.3 })
     
   
 
@@ -104,7 +106,8 @@ function FrontendSection() {
                 }
               </Box>
           </Box>
-          <Projects />
+          {/* ref cooresponds with index in array */}
+          <Projects refs={[pj0, pj1, pj2, pj3]} />
         </div>
       </Box>
     </div>
