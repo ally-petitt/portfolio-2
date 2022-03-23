@@ -77,7 +77,7 @@ function FrontendSection() {
     .to(logoRef.current ,{ scale: 0.7, opacity: .4 })
     .to("#logoContainer", {  height: "50vh", top: "50vh", right: "50vw" })
     .to("#wrapper", {backgroundColor: "#03080E", display: "block", duration: 1.2})
-    .to("#projectsContainer", { display: "flex"})
+    .to("#projectsContainer", { display: "flex", duration: 0})
 
     // TODO:slide up projects
     .to([pj0.current, pj1.current], { opacity: 1, y:0, stagger: 0.3 })

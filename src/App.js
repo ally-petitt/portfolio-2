@@ -1,8 +1,12 @@
 import './App.css';
 import Hero from './components/Hero';
-import Circle from "./components/shapes/Circle"
+import Cursor from "./components/shapes/Cursor"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FrontendSection from './components/FrontendSection';
+import { createContext, useState } from 'react';
+
+
+export const CursorContext = createContext();
 
 
 function App() {
@@ -18,14 +22,16 @@ function App() {
     },
   })
 
+  const cursorState = useState(false)
+  
   return (
-    <>
-      <Circle />
+    <CursorContext.Provider value={cursorState}>
+      <Cursor />
       <ThemeProvider theme={theme}>
         <Hero />
         <FrontendSection />
       </ThemeProvider>
-    </>
+    </CursorContext.Provider>
   )
 }
 

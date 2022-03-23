@@ -6,23 +6,17 @@
     background-color: rgba(249, 101, 252, .3);
     z-index: 100;
     border-radius: 50%;
-    pointer-events: none
+    pointer-events: none;
+    transition: width 0.2s ease, height 0.2s ease;
 }
 
-.circle.sm {
-    width: 30px;
-    height: 30px;
-}
+.circle.focused { width: 10px; height: 10px; opacity: 0.4}
 
-.circle.md {
-    width: 60px;
-    height: 60px;
-}
+.circle.sm {width: 30px; height: 30px;}
 
-.circle.lg {
-    width: 90px;
-    height: 90px;
-}
+.circle.md { width: 60px;height: 60px;}
+
+.circle.lg { width: 90px;height: 90px;}
 
 .outline {
     background-color: transparent;

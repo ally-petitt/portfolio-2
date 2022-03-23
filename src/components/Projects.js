@@ -4,48 +4,21 @@ import Light from './shapes/Light'
 import "./projects.css"
 import gsap from 'gsap';
 import useRefs from "react-use-refs";
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { CursorContext } from "../App"
 
 function Projects({ refs }) {
   const [lightsContainer, timeline] = useRefs();
+  const [focusCursor, setFocusCursor] = useContext(CursorContext)
 
+  useEffect(() => {
+    refs.map(ref => {
+      ref.current.addEventListener("mouseover", () => setFocusCursor(true))
+      ref.current.addEventListener("mouseout", () => setFocusCursor(false))
+    })
+
+  }, [])
   
-
-  // useEffect(() => {
-  //   const lights = lightsContainer.current.children
-  //   timeline.current = gsap.timeline({yoyo: true, repeat:-1 })
-  //     .from(lights, {
-  //       x: 10,
-  //       y: 10,
-  //       stagger: 0.3,
-  //       duration: 2
-  //     })
-  //     .to(lights, {
-  //       y: 10,
-  //       x: -10,
-  //       stagger: 0.2,
-  //       duration: 2
-  //     })
-  //     .from(lights, {
-  //       x: 0,
-  //       y: 0,
-  //       stagger: 0.3,
-  //       duration: 2
-  //     })
-  //     .to(lights, {
-  //       y: -5,
-  //       x: 15,
-  //       stagger: 0.4,
-  //       duration: 2
-  //     })
-  //     .from(lights, {
-  //       x: 10,
-  //       y: -10,
-  //       stagger: 0.3,
-  //       duration: 2
-  //     })
-
-  // }, [])
 
 
   return (
