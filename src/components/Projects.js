@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import useRefs from "react-use-refs";
 import { useContext, useEffect } from 'react';
 import { CursorContext } from "../App"
+import TicTacToeGrid from './shapes/TicTacToeGrid';
 
 function Projects({ refs }) {
   const [lightsContainer, timeline] = useRefs();
@@ -22,10 +23,10 @@ function Projects({ refs }) {
 
 
   return (
-    <Grid spacing={1} container id="projectsContainer" color="white" position="sticky" top={0} left="50vw" height="100vh" py={5} pr={4} width="50vw" style={{ display: "none" }} justifyContent="center" alignItems="center">
-      <Grid item xs={6} id="pj0" className="grid-item__projects" ref={refs[0]} display="flex" alignItems="center" flexDirection="column">
+    <Grid spacing={2} container id="projectsContainer" color="white" position="sticky" top={0} left="50vw" height="100vh" py={5} pr={4} width="50vw" style={{ display: "none" }} justifyContent="center" alignItems="center">
+      <Grid item xs={6} id="pj0" className="grid-item__projects" ref={refs[0]} display="flex" alignItems="center" justifyContent="space-between" flexDirection="column">
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Lights Out</Typography>
-        <Box id="lightsContainer__projects" height="170px" ref={lightsContainer}>
+        <Box id="lightsContainer__projects" height="170px" maxWidth="300px" ref={lightsContainer}>
           {
             [42, 32, 28, 22, 19].map((diameter, i) => {return(<Light diameter={diameter} i={i}/>)})
           }
@@ -33,11 +34,9 @@ function Projects({ refs }) {
         <Button link="https://ally-petitt.github.io/lights-out/" />
       </Grid>
 
-      <Grid item xs={6} id="pj1" className="grid-item__projects" ref={refs[1]}>
+      <Grid item xs={6} id="pj1" className="grid-item__projects" ref={refs[1]} display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Tic-Tac-Toe</Typography>
-        <Box id="gridContainer__projects" height="170px">
-          
-        </Box>
+          <TicTacToeGrid  />
         <Button link="https://angular-tic-tac-toe-caf79.web.app/" />
       </Grid>
 
