@@ -24,7 +24,7 @@ function Projects({ refs }) {
 
   return (
     <Grid spacing={2} container id="projectsContainer" color="white" position="sticky" top={0} left="50vw" height="100vh" py={5} pr={4} width="50vw" style={{ display: "none" }} justifyContent="center" alignItems="center">
-      <Grid item xs={6} id="pj0" className="grid-item__projects" ref={refs[0]} display="flex" alignItems="center" justifyContent="space-between" flexDirection="column">
+      <Grid item title="click me" xs={6} id="pj0" className="grid-item__projects" ref={refs[0]} display="flex" alignItems="center" justifyContent="space-between" flexDirection="column">
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Lights Out</Typography>
         <Box id="lightsContainer__projects" height="170px" maxWidth="300px" ref={lightsContainer}>
           {
@@ -34,13 +34,13 @@ function Projects({ refs }) {
         <Button link="https://ally-petitt.github.io/lights-out/" />
       </Grid>
 
-      <Grid item xs={6} id="pj1" className="grid-item__projects" ref={refs[1]} display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
+      <Grid item title="click me" xs={6} id="pj1" className="grid-item__projects" ref={refs[1]} display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Tic-Tac-Toe</Typography>
           <TicTacToeGrid  />
         <Button link="https://angular-tic-tac-toe-caf79.web.app/" />
       </Grid>
 
-      <Grid item xs={6} id="pj2" className="grid-item__projects" ref={refs[2]}>
+      <Grid item title="click me" xs={6} id="pj2" className="grid-item__projects" ref={refs[2]}>
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Bullseye</Typography>
         <Box id="targetContainer__projects" height="170px">
           
@@ -48,7 +48,7 @@ function Projects({ refs }) {
         <Button link="https://ally-petitt.github.io/Target-Todos/" />
       </Grid>
       
-      <Grid item xs={6} id="pj3" className="grid-item__projects" ref={refs[3]}>
+      <Grid item title="click me" xs={6} id="pj3" className="grid-item__projects" ref={refs[3]}>
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Sudoku Solver</Typography>
         <Box id="numbersContainer__projects" height="170px">
           
