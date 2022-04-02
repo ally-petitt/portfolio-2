@@ -1,14 +1,14 @@
 import { Grid } from "@mui/material"
 import { useRef, useState } from "react";
 import { useEffect } from "react";
-import "./index.css"
+import "./projects.css"
 import TicTacToeBox from "./TicTacToeBox";
 
 function TicTacToeGrid() {
     const gridRef = useRef();
     const tttBoxRefs = useRef([]);
     tttBoxRefs.current = []
-    const [gridValues, setGridValues] = useState(Array(9).fill("X"))
+    const [gridValues, setGridValues] = useState(Array(9).fill(""))
 
     useEffect(() => {
         gridRef.current.addEventListener('mouseover', () => {gridRef.current.style.maxWidth = "170px"})

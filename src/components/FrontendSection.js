@@ -6,7 +6,7 @@ import TextPlugin from 'gsap/TextPlugin';
 import React, { useEffect, useRef } from 'react'
 import ICONS from "../icons/index.js"
 import "./frontend.css"
-import Projects from './Projects.js';
+import Projects from './projects/Projects.js';
 import useRefs from "react-use-refs";
 
 function FrontendSection() {
@@ -78,8 +78,7 @@ function FrontendSection() {
     .to("#logoContainer", {  height: "50vh", top: "50vh", right: "50vw" })
     .to("#wrapper", {backgroundColor: "#03080E", display: "block", duration: 1.2})
     .to("#projectsContainer", { display: "flex", duration: 0})
-
-    // TODO:slide up projects
+    // slide up projects
     .to([pj0.current, pj1.current], { opacity: 1, y:0, stagger: 0.3 })
     .to([pj2.current, pj3.current], 0.7, { opacity: 1, y:0, stagger: 0.3 })
     

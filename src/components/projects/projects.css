@@ -1,0 +1,48 @@
+#lightsContainer__projects > *:hover {
+    opacity: 0
+}
+
+.grid-item__projects {
+    height: 300px;
+    max-width: 250px;
+}
+
+#lightsContainer__projects > * {
+    position: relative;
+    margin-right: 20px;
+}
+
+#light0 {right: 70px; top: 65px;}
+#light1 {left: 10px; bottom: 20px}
+#light2 {left: 20px; top: 20px}
+#light3 {left: 80px; bottom: 50px}
+#light4 {left: 100px; top: 0px}
+
+.filled {background-color: #FAE4C4;}
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#ttt-grid {transition: all 0.1s ease-in-out;}
+#ttt-grid .ttt-line > * { animation: fadeIn 0.4s forwards;}
+.ttt-line {border: 1px #FAE4C4 solid; width: 1px;}
+.ttt-line::after {content: ""; display: block; padding-bottom: 100%; width: 0} 
+#ttt-line0 {border-top-color: transparent; border-left-color: transparent;}
+#ttt-line1 {border-top-color: transparent;}
+#ttt-line2 {border-top-color: transparent; border-right-color: transparent;}
+#ttt-line3 {border-left-color: transparent;}
+#ttt-line5 {border-right-color: transparent;}
+#ttt-line6 {border-left-color: transparent; border-bottom-color: transparent;}
+#ttt-line7 {border-bottom-color: transparent;}
+#ttt-line8 {border-bottom-color: transparent; border-right-color: transparent;}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20); }
+    100% { opacity: 1; transform: translateY(0)}
+}

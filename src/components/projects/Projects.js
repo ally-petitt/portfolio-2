@@ -1,12 +1,12 @@
 import { Typography, Grid, Box } from '@mui/material'
-import Button from './accessory/Button'
-import Light from './shapes/Light'
+import Button from '../accessory/Button'
+import Light from '../shapes/Light'
 import "./projects.css"
 import gsap from 'gsap';
 import useRefs from "react-use-refs";
 import { useContext, useEffect } from 'react';
-import { CursorContext } from "../App"
-import TicTacToeGrid from './shapes/TicTacToeGrid';
+import { CursorContext } from "../../App"
+import TicTacToeGrid from './TicTacToeGrid';
 
 function Projects({ refs }) {
   const [lightsContainer, timeline] = useRefs();
