@@ -28,10 +28,10 @@
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-#ttt-grid {transition: all 0.1s ease-in-out;}
+#ttt-grid, #sudokuGrid {transition: all 0.1s ease-in-out;}
 #ttt-grid .ttt-line > * { animation: fadeIn 0.4s forwards;}
 .ttt-line {border: 1px #FAE4C4 solid; width: 1px;}
-.ttt-line::after {content: ""; display: block; padding-bottom: 100%; width: 0} 
+.ttt-line::after, .sudGridItem::after {content: ""; display: block; padding-bottom: 100%; width: 0} 
 #ttt-line0 {border-top-color: transparent; border-left-color: transparent;}
 #ttt-line1 {border-top-color: transparent;}
 #ttt-line2 {border-top-color: transparent; border-right-color: transparent;}
@@ -40,6 +40,8 @@
 #ttt-line6 {border-left-color: transparent; border-bottom-color: transparent;}
 #ttt-line7 {border-bottom-color: transparent;}
 #ttt-line8 {border-bottom-color: transparent; border-right-color: transparent;}
+
+.sudGridItem:not(.sudGridItem.visible){ opacity: 0 }
 
 
 @keyframes fadeIn {

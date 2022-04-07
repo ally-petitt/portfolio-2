@@ -7,6 +7,7 @@ import useRefs from "react-use-refs";
 import { useContext, useEffect } from 'react';
 import { CursorContext } from "../../App"
 import TicTacToeGrid from './TicTacToeGrid';
+import SudokuGrid from './SudokuGrid';
 
 function Projects({ refs }) {
   const [lightsContainer, timeline] = useRefs();
@@ -48,10 +49,10 @@ function Projects({ refs }) {
         <Button link="https://ally-petitt.github.io/Target-Todos/" />
       </Grid>
       
-      <Grid item title="click me" xs={6} id="pj3" className="grid-item__projects" ref={refs[3]}>
+      <Grid item title="click me" xs={6} id="pj3" className="grid-item__projects" ref={refs[3]} display="flex" flexDirection="column" justifyContent="space-between" alignItems="center">
         <Typography variant="h5" fontFamily="Source Code Pro, monospace">Sudoku Solver</Typography>
         <Box id="numbersContainer__projects" height="170px">
-          
+          <SudokuGrid />
         </Box>
         <Button link="https://ally-petitt.github.io/sudoku-solver/" />
       </Grid>
