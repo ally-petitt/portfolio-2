@@ -18,6 +18,7 @@ function Hero() {
   return (
     <Box bgcolor="primary.main" position="relative" color="white" flexDirection="column" textAlign="center" height="100vh" display="flex" justifyContent="center" alignItems="center">
         <Typography variant="h1" letterSpacing={2}>Ally Petitt</Typography>
+        <Typography variant="h2" letterSpacing={2}>Under Construction</Typography>
         <Stack direction="row" alignItems="center" justifyContent="center" sx={{position: "absolute", bottom: "55px"}}>
             <Typography letterSpacing={2} variant="subtitle1" sx={{  display: "inline" }}>
                 SCROLL
